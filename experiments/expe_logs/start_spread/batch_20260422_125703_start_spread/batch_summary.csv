@@ -1,0 +1,6 @@
+case_tag,model_mix,frag,load,nrack,workload,pp1_spread_ms,status,run_dir
+spread0ms,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,0,ok,/home/xuheng/hyacinth/experiments/expe_logs/start_spread/batch_20260422_125703_start_spread/run_0_20260422_125703_spread0ms
+spread25ms,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,25,ok,/home/xuheng/hyacinth/experiments/expe_logs/start_spread/batch_20260422_125703_start_spread/run_1_20260422_144532_spread25ms
+spread50ms,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,50,ok,/home/xuheng/hyacinth/experiments/expe_logs/start_spread/batch_20260422_125703_start_spread/run_2_20260422_162148_spread50ms
+spread75ms,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,75,ok,/home/xuheng/hyacinth/experiments/expe_logs/start_spread/batch_20260422_125703_start_spread/run_3_20260422_174340_spread75ms
+spread100ms,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,100,ok,/home/xuheng/hyacinth/experiments/expe_logs/start_spread/batch_20260422_125703_start_spread/run_4_20260422_190704_spread100ms

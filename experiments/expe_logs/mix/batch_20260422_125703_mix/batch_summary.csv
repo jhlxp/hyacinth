@@ -1,0 +1,4 @@
+case_tag,model_mix,frag,load,nrack,workload,status,run_dir
+mix4L3M3S,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/mix/batch_20260422_125703_mix/run_0_20260422_125703_mix4L3M3S
+mix10L,10L,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/mix/batch_20260422_125703_mix/run_1_20260422_144401_mix10L
+mix20S,20S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/mix/batch_20260422_125703_mix/run_2_20260422_171313_mix20S

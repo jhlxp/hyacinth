@@ -1,0 +1,5 @@
+case_base,num_success_seeds,num_total_seeds
+cdf_fbcoco,10,10
+cdf_fbcoco_february_2024,10,10
+cdf_fbcoco_january_2024,10,10
+cdf_fbcoco_march_2024,10,10

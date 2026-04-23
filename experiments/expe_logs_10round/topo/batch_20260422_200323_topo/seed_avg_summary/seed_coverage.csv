@@ -1,0 +1,4 @@
+case_base,num_success_seeds,num_total_seeds
+n20_mix1L1M1S,10,10
+n40_mix3L2M1S,10,10
+n80_mix4L3M3S,10,10

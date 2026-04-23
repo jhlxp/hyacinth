@@ -1,0 +1,6 @@
+case_tag,model_mix,frag,load,nrack,workload,status,run_dir
+frag0p1,4L,3M,3S,0.1,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/frag/batch_20260422_125703_frag/run_0_20260422_125703_frag0p1
+frag0p3,4L,3M,3S,0.3,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/frag/batch_20260422_125703_frag/run_1_20260422_144508_frag0p3
+frag0p5,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/frag/batch_20260422_125703_frag/run_2_20260422_162030_frag0p5
+frag0p7,4L,3M,3S,0.7,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/frag/batch_20260422_125703_frag/run_3_20260422_174207_frag0p7
+frag0p9,4L,3M,3S,0.9,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/frag/batch_20260422_125703_frag/run_4_20260422_190610_frag0p9

@@ -1,0 +1,6 @@
+case_base,num_success_seeds,num_total_seeds
+spread0ms,0,10
+spread100ms,0,10
+spread25ms,0,10
+spread50ms,0,10
+spread75ms,0,10

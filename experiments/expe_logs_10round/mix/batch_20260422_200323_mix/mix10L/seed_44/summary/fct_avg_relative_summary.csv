@@ -1,0 +1,11 @@
+scheduler,avg_relative_fct_vs_dynamic,matched_bins,self_bins,dynamic_bins
+ocs_eps_global_ksp,1.390032,17,17,17
+pure_ocs_ksp,1.035913,17,17,17
+eps_ecmp,0.957055,17,17,17
+ocs_eps_large_small,1.162198,17,17,17
+pure_ocs_ksp_greedy,1.029421,17,17,17
+ocs_eps_preset_greedy,0.999205,17,17,17
+ocs_eps_preset_dynamic_greedy,1.000000,17,17,17
+pure_ocs_3hop_preset,0.990410,17,17,17
+pure_ocs_pruned,0.990410,17,17,17
+ocs_eps_pruned,1.009620,17,17,17

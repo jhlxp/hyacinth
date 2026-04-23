@@ -1,0 +1,4 @@
+case_tag,model_mix,frag,load,nrack,workload,status,run_dir
+n20_mix1L1M1S,1L,1M,1S,0.5,0.5,20,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/topo/batch_20260422_125703_topo/run_0_20260422_125703_n20_mix1L1M1S
+n40_mix3L2M1S,3L,2M,1S,0.5,0.5,40,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/topo/batch_20260422_125703_topo/run_1_20260422_131020_n40_mix3L2M1S
+n80_mix4L3M3S,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/topo/batch_20260422_125703_topo/run_2_20260422_140313_n80_mix4L3M3S

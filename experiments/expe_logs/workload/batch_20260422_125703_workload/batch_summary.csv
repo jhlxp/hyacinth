@@ -1,0 +1,5 @@
+case_tag,model_mix,frag,load,nrack,workload,status,run_dir
+cdf_fbcoco,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/workload/batch_20260422_125703_workload/run_0_20260422_125703_cdf_fbcoco
+cdf_datamining,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco_january_2024.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/workload/batch_20260422_125703_workload/run_1_20260422_145003_cdf_datamining
+cdf_websearch,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco_february_2024.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/workload/batch_20260422_125703_workload/run_2_20260422_161415_cdf_websearch
+cdf_boltrpc,4L,3M,3S,0.5,0.5,80,/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco_march_2024.csv,ok,/home/xuheng/hyacinth/experiments/expe_logs/workload/batch_20260422_125703_workload/run_3_20260422_173703_cdf_boltrpc

@@ -1,0 +1,11 @@
+case_tag,seed,model_mix,frag,load,nrack,workload,status,run_dir
+"n20_mix1L1M1S_seed42","42","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_42"
+"n20_mix1L1M1S_seed43","43","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_43"
+"n20_mix1L1M1S_seed44","44","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_44"
+"n20_mix1L1M1S_seed45","45","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_45"
+"n20_mix1L1M1S_seed46","46","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_46"
+"n20_mix1L1M1S_seed47","47","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_47"
+"n20_mix1L1M1S_seed48","48","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_48"
+"n20_mix1L1M1S_seed49","49","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_49"
+"n20_mix1L1M1S_seed50","50","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_50"
+"n20_mix1L1M1S_seed51","51","1L,1M,1S","0.5","0.5","20","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/topo/batch_20260422_200323_topo/n20_mix1L1M1S/seed_51"

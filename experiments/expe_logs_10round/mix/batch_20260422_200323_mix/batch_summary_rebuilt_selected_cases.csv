@@ -1,0 +1,11 @@
+case_tag,seed,model_mix,frag,load,nrack,workload,status,run_dir
+"mix20S_seed42","42","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","ok","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_42"
+"mix20S_seed43","43","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_43"
+"mix20S_seed44","44","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_44"
+"mix20S_seed45","45","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_45"
+"mix20S_seed46","46","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_46"
+"mix20S_seed47","47","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_47"
+"mix20S_seed48","48","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_48"
+"mix20S_seed49","49","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_49"
+"mix20S_seed50","50","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_50"
+"mix20S_seed51","51","20S","0.5","0.5","80","/home/xuheng/hyacinth/traffic_gene/flow_distr/fbcoco.csv","failed","/home/xuheng/hyacinth/experiments/expe_logs_10round/mix/batch_20260422_200323_mix/mix20S/seed_51"
