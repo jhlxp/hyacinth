@@ -5,6 +5,8 @@
 *.png
 *.pdf
 *.htsim
+*.csv
+*.json
 ./experiments/expe_logs
 ./experiments/expe_logs_10round_40tor
 ./experiments/expe_logs_10round_80tor
