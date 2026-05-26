@@ -63,7 +63,7 @@ SIM_TIMEOUT_SEC="${SIM_TIMEOUT_SEC:-0}"
 SKIP_PLOT_RAW="${SKIP_PLOT:-0}"
 SKIP_TRAFFIC_TIMELINE_PLOT="${SKIP_TRAFFIC_TIMELINE_PLOT:-false}"
 
-SCHEDULERS_DEFAULT="ocs_eps_pruned,pure_ocs_ksp,eps_ecmp,pure_ocs_ksp_greedy,pure_ocs_pruned,ocs_eps_large_small,ocs_eps_global_ksp,pure_ocs_3hop_preset,ocs_eps_preset_greedy,ocs_eps_preset_dynamic_greedy"
+SCHEDULERS_DEFAULT="ocs_eps_pruned,pure_ocs_ksp,eps_ecmp,pure_ocs_ksp_greedy,pure_ocs_pruned,ocs_eps_large_small,ocs_eps_global_ksp,ocs_eps_preset_greedy,ocs_eps_preset_dynamic_greedy"
 SCHEDULERS_CSV="${SCHEDULERS:-$SCHEDULERS_DEFAULT}"
 
 RUN_TAG="${RUN_TAG:-run_$(date +%Y%m%d_%H%M%S)_infer_80racks_8c_mix4L3M3S_frag0p5_50pct_actual50pct}"
@@ -168,7 +168,7 @@ resolve_topo_key() {
   case "$s" in
     ocs_eps_pruned|ocs_eps_large_small|ocs_eps_global_ksp|ocs_eps_preset_greedy|ocs_eps_preset_dynamic_greedy) echo "eps1" ;;
     eps_ecmp) echo "eps8" ;;
-    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned|pure_ocs_3hop_preset) echo "eps0" ;;
+    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned) echo "eps0" ;;
     *) echo "unknown" ;;
   esac
 }
@@ -178,7 +178,7 @@ resolve_num_eps() {
   case "$s" in
     eps_ecmp) echo "8" ;;
     ocs_eps_pruned|ocs_eps_large_small|ocs_eps_global_ksp|ocs_eps_preset_greedy|ocs_eps_preset_dynamic_greedy) echo "1" ;;
-    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned|pure_ocs_3hop_preset) echo "0" ;;
+    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned) echo "0" ;;
     *) echo "-1" ;;
   esac
 }

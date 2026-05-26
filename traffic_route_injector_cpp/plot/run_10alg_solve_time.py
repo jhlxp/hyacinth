@@ -18,7 +18,6 @@ ALGO_SPECS = [
     {"scheduler": "pure_ocs_pruned", "topo_key": "eps0", "num_eps": 0},
     {"scheduler": "ocs_eps_large_small", "topo_key": "eps1", "num_eps": 1},
     {"scheduler": "ocs_eps_global_ksp", "topo_key": "eps1", "num_eps": 1},
-    {"scheduler": "pure_ocs_3hop_preset", "topo_key": "eps0", "num_eps": 0},
     {"scheduler": "ocs_eps_preset_greedy", "topo_key": "eps1", "num_eps": 1},
     {"scheduler": "ocs_eps_preset_dynamic_greedy", "topo_key": "eps1", "num_eps": 1},
 ]

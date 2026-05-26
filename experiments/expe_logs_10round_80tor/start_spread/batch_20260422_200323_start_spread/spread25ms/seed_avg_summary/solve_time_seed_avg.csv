@@ -1,0 +1,11 @@
+scheduler,seed_count,mean_avg_solve_time_ms,std_avg_solve_time_ms
+ocs_eps_global_ksp,10,0.000,0.000
+pure_ocs_ksp,10,0.000,0.000
+eps_ecmp,10,0.000,0.000
+pure_ocs_ksp_greedy,10,0.123,0.007
+ocs_eps_preset_dynamic_greedy,10,0.238,0.030
+pure_ocs_pruned,10,0.645,0.104
+ocs_eps_pruned,10,0.751,0.130
+ocs_eps_large_small,10,0.000,0.000
+ocs_eps_preset_greedy,10,0.132,0.013
+pure_ocs_3hop_preset,10,0.579,0.136

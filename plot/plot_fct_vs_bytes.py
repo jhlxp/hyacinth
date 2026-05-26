@@ -16,13 +16,19 @@ PREFERRED_BASELINE_ORDER = [
     "ocs_eps_global_ksp",
     "pure_ocs_ksp",
     "eps_ecmp",
-    "ocs_eps_large_small",
+    "ocs_eps_large_small_10pct",
+    "ocs_eps_large_small_20pct",
+    "ocs_eps_large_small_30pct",
     "pure_ocs_ksp_greedy",
-    "ocs_eps_preset_greedy",
+    "ocs_eps_preset_greedy_10pct",
+    "ocs_eps_preset_greedy_20pct",
+    "ocs_eps_preset_greedy_30pct",
     "ocs_eps_preset_dynamic_greedy",
-    "pure_ocs_3hop_preset",
     "pure_ocs_pruned",
     "ocs_eps_pruned",
+    # legacy keys for backward compatibility
+    "ocs_eps_large_small",
+    "ocs_eps_preset_greedy",
 ]
 
 ORDER_INDEX = {name: idx for idx, name in enumerate(PREFERRED_BASELINE_ORDER)}
@@ -32,12 +38,18 @@ ALGORITHM_ALIASES = {
     "pure_ocs_ksp": "pure_ocs_ksp",
     "eps_ecmp": "eps_ecmp",
     "ocs_eps_pruned": "ocs_eps_pruned",
-    "ocs_eps_large_small": "ocs_eps_large_small",
+    "ocs_eps_large_small_10pct": "ocs_eps_large_small-10%",
+    "ocs_eps_large_small_20pct": "ocs_eps_large_small-20%",
+    "ocs_eps_large_small_30pct": "ocs_eps_large_small-30%",
     "pure_ocs_ksp_greedy": "pure_ocs_ksp_greedy",
-    "ocs_eps_preset_greedy": "ocs_eps_preset_greedy",
+    "ocs_eps_preset_greedy_10pct": "ocs_eps_preset_greedy-10%",
+    "ocs_eps_preset_greedy_20pct": "ocs_eps_preset_greedy-20%",
+    "ocs_eps_preset_greedy_30pct": "ocs_eps_preset_greedy-30%",
     "ocs_eps_preset_dynamic_greedy": "ocs_eps_preset_dynamic_greedy",
-    "pure_ocs_3hop_preset": "pure_ocs_3hop_preset",
     "pure_ocs_pruned": "pure_ocs_pruned",
+    # legacy keys
+    "ocs_eps_large_small": "ocs_eps_large_small",
+    "ocs_eps_preset_greedy": "ocs_eps_preset_greedy",
 }
 
 ALGORITHM_COLORS = {
@@ -45,12 +57,18 @@ ALGORITHM_COLORS = {
     "pure_ocs_ksp": "#F28E2B",
     "eps_ecmp": "#FFBE7D",
     "ocs_eps_pruned": "#FF9DA7",
-    "ocs_eps_large_small": "#E15759",
+    "ocs_eps_large_small_10pct": "#FF7B72",
+    "ocs_eps_large_small_20pct": "#E15759",
+    "ocs_eps_large_small_30pct": "#C92A2A",
     "pure_ocs_ksp_greedy": "#76B7B2",
-    "ocs_eps_preset_greedy": "#59A14F",
+    "ocs_eps_preset_greedy_10pct": "#6DA8FF",
+    "ocs_eps_preset_greedy_20pct": "#59A14F",
+    "ocs_eps_preset_greedy_30pct": "#1E4FB8",
     "ocs_eps_preset_dynamic_greedy": "#9C755F",
-    "pure_ocs_3hop_preset": "#EDC948",
     "pure_ocs_pruned": "#B07AA1",
+    # legacy keys
+    "ocs_eps_large_small": "#E15759",
+    "ocs_eps_preset_greedy": "#59A14F",
 }
 
 

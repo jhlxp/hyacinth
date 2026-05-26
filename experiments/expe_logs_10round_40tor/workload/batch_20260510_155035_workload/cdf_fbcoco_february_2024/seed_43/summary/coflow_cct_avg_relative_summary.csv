@@ -1,0 +1,11 @@
+scheduler,percentile,cct_percentile_ms,relative_cct_percentile_vs_dynamic,avg_cct_ms,avg_relative_cct_vs_dynamic,num_coflows,unknown_group_flows
+ocs_eps_global_ksp,100.0,2082.801,1.262,2082.801,1.262,48,0
+pure_ocs_ksp,100.0,2070.168,1.255,2070.168,1.255,48,0
+eps_ecmp,100.0,942.928,0.571,942.928,0.571,48,0
+ocs_eps_large_small,100.0,2837.768,1.720,2837.768,1.720,48,0
+pure_ocs_ksp_greedy,100.0,1969.890,1.194,1969.890,1.194,48,0
+ocs_eps_preset_greedy,100.0,2292.221,1.389,2292.221,1.389,48,0
+ocs_eps_preset_dynamic_greedy,100.0,1649.925,1.000,1649.925,1.000,48,0
+pure_ocs_3hop_preset,100.0,1784.158,1.081,1784.158,1.081,48,0
+pure_ocs_pruned,100.0,1784.158,1.081,1784.158,1.081,48,0
+ocs_eps_pruned,100.0,1552.816,0.941,1552.816,0.941,48,0

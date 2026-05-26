@@ -330,25 +330,27 @@ int main(int argc, char **argv) {
             NdpSink* flowSnk = new NdpSink(flowpacer);
             ndpRtxScanner->registerNdp(*flowSrc);
             Route* routeout, *routein;
-            if (!has_explicit_path) {
-                cerr << "[flat] Skip malformed flow line " << line_no
-                     << ": network flow must provide path=..." << endl;
-                continue;
-            }
 
             vector<const Route*>* srcpaths = nullptr;
             vector<const Route*>* dstpaths = nullptr;
-            string err_msg;
-            if (!top->get_single_path_from_tors(flow_src, flow_dst, explicit_tor_path, srcpaths, &err_msg)) {
-                cerr << "[flat] Skip flow at line " << line_no
-                     << ", invalid explicit path (src->dst): " << err_msg << endl;
-                continue;
-            }
-            vector<int> reverse_tor_path(explicit_tor_path.rbegin(), explicit_tor_path.rend());
-            if (!top->get_single_path_from_tors(flow_dst, flow_src, reverse_tor_path, dstpaths, &err_msg)) {
-                cerr << "[flat] Skip flow at line " << line_no
-                     << ", invalid explicit path (dst->src): " << err_msg << endl;
-                continue;
+            bool using_explicit_path = has_explicit_path;
+
+            if (using_explicit_path) {
+                string err_msg;
+                if (!top->get_single_path_from_tors(flow_src, flow_dst, explicit_tor_path, srcpaths, &err_msg)) {
+                    cerr << "[flat] Skip flow at line " << line_no
+                         << ", invalid explicit path (src->dst): " << err_msg << endl;
+                    continue;
+                }
+                vector<int> reverse_tor_path(explicit_tor_path.rbegin(), explicit_tor_path.rend());
+                if (!top->get_single_path_from_tors(flow_dst, flow_src, reverse_tor_path, dstpaths, &err_msg)) {
+                    cerr << "[flat] Skip flow at line " << line_no
+                         << ", invalid explicit path (dst->src): " << err_msg << endl;
+                    continue;
+                }
+            } else {
+                srcpaths = top->get_paths(flow_src, flow_dst, false);
+                dstpaths = top->get_paths(flow_dst, flow_src, false);
             }
 
             if (!srcpaths || srcpaths->empty() || !dstpaths || dstpaths->empty()) {
@@ -358,25 +360,46 @@ int main(int argc, char **argv) {
             }
 
             flowSrc->setvlb(false);
-            routeout = new Route(*(srcpaths->at(0)));
-            routeout->push_back(flowSnk);
-            routein = new Route(*(dstpaths->at(0)));
-            routein->push_back(flowSrc);
-            // We appended endpoints, so rebuild reverse linkage to keep
-            // forward/backward hop counts consistent for bounce handling.
-            routeout->set_reverse(routein);
-            routein->set_reverse(routeout);
+            if (using_explicit_path) {
+                routeout = new Route(*(srcpaths->at(0)));
+                routeout->push_back(flowSnk);
+                routein = new Route(*(dstpaths->at(0)));
+                routein->push_back(flowSrc);
+                // We appended endpoints, so rebuild reverse linkage to keep
+                // forward/backward hop counts consistent for bounce handling.
+                routeout->set_reverse(routein);
+                routein->set_reverse(routeout);
+            } else {
+                int choice_src = rand() % srcpaths->size();
+                routeout = new Route(*(srcpaths->at(choice_src)));
+                routeout->push_back(flowSnk);
+
+                int choice_dst = rand() % dstpaths->size();
+                routein = new Route(*(dstpaths->at(choice_dst)));
+                routein->push_back(flowSrc);
+
+                routeout->set_reverse(routein);
+                routein->set_reverse(routeout);
+            }
+
             if (route_strategy == SINGLE_PATH) {
                 routeout->set_path_id(0, 1);
                 routein->set_path_id(0, 1);
+                routeout->add_endpoints(flowSrc, flowSnk);
+                routein->add_endpoints(flowSnk, flowSrc);
             }
 
             flowSrc->connect(*routeout, *routein, *flowSnk, timeFromNs(flow_start_us/1.));
 
-            flowSrc->set_num_shortest_paths(1);
-            flowSnk->set_num_shortest_paths(1);
+            if (using_explicit_path) {
+                flowSrc->set_num_shortest_paths(1);
+                flowSnk->set_num_shortest_paths(1);
+            } else {
+                flowSrc->set_num_shortest_paths(top->get_num_shortest_paths(flow_src, flow_dst));
+                flowSnk->set_num_shortest_paths(top->get_num_shortest_paths(flow_dst, flow_src));
+            }
 
-            if (route_strategy != SINGLE_PATH) {
+            if (!using_explicit_path || route_strategy != SINGLE_PATH) {
                 flowSrc->set_paths(srcpaths);
                 flowSnk->set_paths(dstpaths);
             }

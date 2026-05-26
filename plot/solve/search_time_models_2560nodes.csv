@@ -1,0 +1,10 @@
+case_base,model,scheduler,label,mean_avg_solve_time_ms
+mix10S,Small,ocs_eps_preset_dynamic_greedy,Hyacinth-dynamic,0.162000
+mix10S,Small,ocs_eps_pruned,Hyacinth-pruned,0.214000
+mix10S,Small,pure_ocs_pruned,Optics-pruned,0.298000
+mix3L2M1S,Mix,ocs_eps_preset_dynamic_greedy,Hyacinth-dynamic,0.329000
+mix3L2M1S,Mix,ocs_eps_pruned,Hyacinth-pruned,0.479000
+mix3L2M1S,Mix,pure_ocs_pruned,Optics-pruned,0.623000
+mix5L,Large,ocs_eps_preset_dynamic_greedy,Hyacinth-dynamic,0.495000
+mix5L,Large,ocs_eps_pruned,Hyacinth-pruned,0.618000
+mix5L,Large,pure_ocs_pruned,Optics-pruned,0.996000

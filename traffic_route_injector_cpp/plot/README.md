@@ -18,7 +18,6 @@ This folder benchmarks all 10 schedulers using `route_trace_dep_injector`, then 
   - `pure_ocs_ksp`
   - `pure_ocs_ksp_greedy`
   - `pure_ocs_pruned`
-  - `pure_ocs_3hop_preset`
 - `n80_k7_c8_eps1.txt`:
   - `ocs_eps_pruned`
   - `ocs_eps_large_small`

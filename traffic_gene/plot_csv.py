@@ -38,7 +38,7 @@ def compute_avg_flow_size(sizes, cdf):
 
 # ====== Plot multiple CDFs ======
 def plot_multiple_cdfs(csv_files, legends, out_path):
-    fig, ax = plt.subplots(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(5, 3))
 
     colors = ["#F9413D", "#3071F4", "#43AA8B", "#F9A03F", "#7B2CBF"]
 
@@ -60,30 +60,27 @@ def plot_multiple_cdfs(csv_files, legends, out_path):
         )
 
     ax.set_xscale("log")
-    ax.set_xlabel("Flow size (Bytes)", fontsize=19)
-    ax.set_ylabel("CDF", fontsize=19)
+    ax.set_xlabel("Flow Size (Bytes)", fontsize=16)
+    ax.set_ylabel("CDF", fontsize=16)
     ax.set_yticks(
         [0, 0.25, 0.5, 0.75, 1],
         ["0", "0.25", "0.5", "0.75", "1"]
     )
 
-
     # --- tick label size ---
-    ax.tick_params(labelsize=19)
+    ax.tick_params(labelsize=16)
 
     # --- only major grid ---
     ax.grid(True, which="major", linestyle="--", alpha=0.4)
 
-    # --- legend font size ---
+    # --- legend inside plot, upper left ---
     ax.legend(
-        fontsize=18,
-        loc="lower center",
-        bbox_to_anchor=(0.5, 1.02),
-        frameon=False,
-        ncol=min(3, len(csv_files))
+        fontsize=16,
+        loc="upper left",
+        frameon=False
     )
 
-    fig.tight_layout(rect=[0, 0, 1, 0.90])
+    fig.tight_layout()
     fig.savefig(out_path, dpi=600, bbox_inches="tight", pad_inches=0.05)
     plt.close(fig)
     print(f"[OK] Saved CDF plot to: {out_path}")
@@ -93,19 +90,15 @@ def plot_multiple_cdfs(csv_files, legends, out_path):
 if __name__ == "__main__":
 
     csv_files = [
-        "./flow_distr/websearch.csv",
         "./flow_distr/fbcoco.csv",
-        "./flow_distr/fbcoco_january_2024.csv",
         "./flow_distr/fbcoco_february_2024.csv",
         "./flow_distr/fbcoco_march_2024.csv",
     ]
 
     legends = [
-        "Websearch",
-        "Meta trace",
-        "Meta trace january",
-        "Meta trace february",
-        "Meta trace march"
+        "January",
+        "February",
+        "March"
     ]
 
     LINK_Gbps = 100

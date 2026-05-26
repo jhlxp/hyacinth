@@ -32,8 +32,8 @@ HOSTS_PER_RACK=8
 GPUS_PER_HOST=8
 BASE_FRAG=0.5
 BASE_LOAD=0.5
-BASE_NRACK=80
-BASE_MODEL_MIX="4L,3M,3S"
+BASE_NRACK=40
+BASE_MODEL_MIX="3L,2M,1S"
 BASE_WORKLOAD_FILE="$BASE_WORKLOAD"
 
 TRAFFIC_TOPO_NAME="dc"
@@ -71,7 +71,7 @@ SIM_TIMEOUT_SEC="${SIM_TIMEOUT_SEC:-0}"
 AUTO_BUILD_RAW="${AUTO_BUILD:-1}"
 NPROC="${NPROC:-$(nproc)}"
 
-SCHEDULERS_DEFAULT="ocs_eps_pruned,pure_ocs_ksp,eps_ecmp,pure_ocs_ksp_greedy,pure_ocs_pruned,ocs_eps_large_small,ocs_eps_global_ksp,pure_ocs_3hop_preset,ocs_eps_preset_greedy,ocs_eps_preset_dynamic_greedy"
+SCHEDULERS_DEFAULT="ocs_eps_pruned,pure_ocs_ksp,eps_ecmp,pure_ocs_ksp_greedy,pure_ocs_pruned,ocs_eps_large_small_10pct,ocs_eps_large_small_20pct,ocs_eps_large_small_30pct,ocs_eps_global_ksp,ocs_eps_preset_greedy_10pct,ocs_eps_preset_greedy_20pct,ocs_eps_preset_greedy_30pct,ocs_eps_preset_dynamic_greedy"
 SCHEDULERS_CSV="${SCHEDULERS:-$SCHEDULERS_DEFAULT}"
 
 CASE_TAGS=(
@@ -173,23 +173,58 @@ run_with_optional_timeout() {
   return $?
 }
 
-resolve_topo_key() {
+canonical_scheduler_name() {
   local s="$1"
+  case "$s" in
+    ocs_eps_large_small_10pct|ocs_eps_large_small_20pct|ocs_eps_large_small_30pct)
+      echo "ocs_eps_large_small"
+      ;;
+    ocs_eps_preset_greedy_10pct|ocs_eps_preset_greedy_20pct|ocs_eps_preset_greedy_30pct)
+      echo "ocs_eps_preset_greedy"
+      ;;
+    *)
+      echo "$s"
+      ;;
+  esac
+}
+
+resolve_small_flow_threshold() {
+  local s="$1"
+  case "$s" in
+    ocs_eps_large_small_10pct|ocs_eps_preset_greedy_10pct)
+      echo "10.0"
+      ;;
+    ocs_eps_large_small_20pct|ocs_eps_preset_greedy_20pct)
+      echo "20.0"
+      ;;
+    ocs_eps_large_small_30pct|ocs_eps_preset_greedy_30pct)
+      echo "30.0"
+      ;;
+    *)
+      echo "$SMALL_FLOW_THRESHOLD"
+      ;;
+  esac
+}
+
+resolve_topo_key() {
+  local s
+  s="$(canonical_scheduler_name "$1")"
   case "$s" in
     ocs_eps_pruned|ocs_eps_large_small|ocs_eps_global_ksp|ocs_eps_preset_greedy|ocs_eps_preset_dynamic_greedy) echo "eps1" ;;
     eps_ecmp) echo "eps8" ;;
-    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned|pure_ocs_3hop_preset) echo "eps0" ;;
+    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned) echo "eps0" ;;
     *) echo "unknown" ;;
   esac
 }
 
 resolve_num_eps() {
-  local s="$1"
+  local s
+  s="$(canonical_scheduler_name "$1")"
   local eps_count="$2"
   case "$s" in
     eps_ecmp) echo "$eps_count" ;;
     ocs_eps_pruned|ocs_eps_large_small|ocs_eps_global_ksp|ocs_eps_preset_greedy|ocs_eps_preset_dynamic_greedy) echo "1" ;;
-    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned|pure_ocs_3hop_preset) echo "0" ;;
+    pure_ocs_ksp|pure_ocs_ksp_greedy|pure_ocs_pruned) echo "0" ;;
     *) echo "-1" ;;
   esac
 }
@@ -372,9 +407,11 @@ run_case() {
 
   run_one_scheduler() {
     local scheduler="$1"
-    local topo_key="$2"
-    local num_eps="$3"
-    local topo_file="$4"
+    local scheduler_actual="$2"
+    local topo_key="$3"
+    local num_eps="$4"
+    local topo_file="$5"
+    local threshold_override="$6"
 
     local out_traffic="$transformed_dir/traffic_routed.${scheduler}.txt"
     local route_log="$route_logs_dir/${scheduler}.log"
@@ -383,10 +420,10 @@ run_case() {
     local sim_stderr="$sim_logs_dir/${scheduler}.stderr.txt"
     local status_file="$status_dir/${scheduler}.tsv"
 
-    echo "[start] $case_tag $scheduler topo=$topo_key num_eps=$num_eps"
+    echo "[start] $case_tag $scheduler actual=$scheduler_actual topo=$topo_key num_eps=$num_eps threshold=$threshold_override"
 
     {
-      echo "\$ $INJECTOR_BIN --topo_file $topo_file --traffic_in $traffic_in --traffic_out $out_traffic --num_tor $nrack --num_eps $num_eps --rate_tor_tor $RATE_TOR_TOR --rate_tor_eps $RATE_TOR_EPS --scheduler $scheduler --ksp_k $KSP_K --max_hops $MAX_HOPS --max_candidates $MAX_CANDIDATES --small_flow_mode $SMALL_FLOW_MODE --small_flow_threshold $SMALL_FLOW_THRESHOLD"
+      echo "\$ $INJECTOR_BIN --topo_file $topo_file --traffic_in $traffic_in --traffic_out $out_traffic --num_tor $nrack --num_eps $num_eps --rate_tor_tor $RATE_TOR_TOR --rate_tor_eps $RATE_TOR_EPS --scheduler $scheduler_actual --ksp_k $KSP_K --max_hops $MAX_HOPS --max_candidates $MAX_CANDIDATES --small_flow_mode $SMALL_FLOW_MODE --small_flow_threshold $threshold_override"
       run_with_optional_timeout "$INJECT_TIMEOUT_SEC" \
         "$INJECTOR_BIN" \
         --topo_file "$topo_file" \
@@ -396,14 +433,21 @@ run_case() {
         --num_eps "$num_eps" \
         --rate_tor_tor "$RATE_TOR_TOR" \
         --rate_tor_eps "$RATE_TOR_EPS" \
-        --scheduler "$scheduler" \
+        --scheduler "$scheduler_actual" \
         --ksp_k "$KSP_K" \
         --max_hops "$MAX_HOPS" \
         --max_candidates "$MAX_CANDIDATES" \
         --small_flow_mode "$SMALL_FLOW_MODE" \
-        --small_flow_threshold "$SMALL_FLOW_THRESHOLD"
+        --small_flow_threshold "$threshold_override"
     } > "$route_log" 2>&1
     local inject_rc=$?
+
+    {
+      echo "scheduler_actual = $scheduler_actual"
+      echo "scheduler_alias = $scheduler"
+      echo "scheduler = $scheduler"
+      echo "small_flow_threshold_effective = $threshold_override"
+    } >> "$route_log"
 
     local status="ok"
     if [[ $inject_rc -ne 0 ]]; then
@@ -449,8 +493,10 @@ run_case() {
   echo "[case] schedulers: $(join_by_comma "${sched_list[@]}")"
 
   for scheduler in "${sched_list[@]}"; do
+    scheduler_actual="$(canonical_scheduler_name "$scheduler")"
     topo_key="$(resolve_topo_key "$scheduler")"
     num_eps="$(resolve_num_eps "$scheduler" "$eps_count")"
+    threshold_override="$(resolve_small_flow_threshold "$scheduler")"
     case "$topo_key" in
       eps0) topo_file="$topo_eps0" ;;
       eps1) topo_file="$topo_eps1" ;;
@@ -461,7 +507,7 @@ run_case() {
         ;;
     esac
 
-    run_one_scheduler "$scheduler" "$topo_key" "$num_eps" "$topo_file" &
+    run_one_scheduler "$scheduler" "$scheduler_actual" "$topo_key" "$num_eps" "$topo_file" "$threshold_override" &
 
     while true; do
       running_jobs=$(jobs -pr | wc -l)

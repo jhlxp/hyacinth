@@ -1,0 +1,11 @@
+scheduler,seed_count,mean_avg_relative_fct_vs_dynamic,std_avg_relative_fct_vs_dynamic
+ocs_eps_global_ksp,10,1.489,0.472
+pure_ocs_ksp,10,1.628,0.582
+eps_ecmp,10,0.400,0.035
+pure_ocs_ksp_greedy,10,1.762,0.613
+ocs_eps_preset_dynamic_greedy,10,1.000,0.000
+pure_ocs_pruned,10,1.354,0.271
+ocs_eps_pruned,10,0.989,0.634
+ocs_eps_large_small,10,1.715,0.687
+ocs_eps_preset_greedy,10,2.610,0.727
+pure_ocs_3hop_preset,10,1.354,0.271

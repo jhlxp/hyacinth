@@ -11,7 +11,7 @@ PLOT_COFLOW_AVG_REL="${PLOT_COFLOW_AVG_REL:-$ROOT/plot/plot_coflow_avg_relative_
 PLOT_TIMELINE="${PLOT_TIMELINE:-$ROOT/plot/plot_traffic_coflow_timeline.py}"
 
 # Fixed run directory (edit this line when switching experiments).
-RUN_DIR="${RUN_DIR:-/home/xuheng/hyacinth/experiments/expe_logs_10round/workload/batch_20260422_200323_workload/cdf_fbcoco_march_2024/seed_51}"
+RUN_DIR="${RUN_DIR:-/home/xuheng/hyacinth/experiments/expe_logs_10round_80tor/workload/batch_20260422_200323_workload/cdf_fbcoco_march_2024/seed_51}"
 if [[ ! -d "$RUN_DIR" ]]; then
   echo "[fatal] fixed RUN_DIR not found: $RUN_DIR" >&2
   echo "[hint] edit RUN_DIR in this script to your real run directory." >&2

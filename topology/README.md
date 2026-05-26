@@ -36,7 +36,6 @@ From the existing baseline runner (`ocs-eps/flow_level_sim_project_inference/run
   - `pure_ocs_ksp`
   - `pure_ocs_ksp_greedy`
   - `pure_ocs_pruned`
-  - `pure_ocs_3hop_preset` (`pure_ocs_3hop_ksp` alias)
 
 - Use `n80_k7_c8_eps1.txt`:
   - `ocs_eps_pruned` (`strict_queue_greedy` alias)

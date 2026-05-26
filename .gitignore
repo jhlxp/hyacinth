@@ -5,3 +5,7 @@
 *.png
 *.pdf
 *.htsim
+./experiments/expe_logs
+./experiments/expe_logs_10round_40tor
+./experiments/expe_logs_10round_80tor
+./experiments/expe_logs_threshold_sweep

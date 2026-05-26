@@ -28,7 +28,6 @@ PREFERRED_BASELINE_ORDER = [
     "pure_ocs_ksp_greedy",
     "ocs_eps_preset_greedy",
     "ocs_eps_preset_dynamic_greedy",
-    "pure_ocs_3hop_preset",
     "pure_ocs_pruned",
     "ocs_eps_pruned",
 ]
@@ -44,7 +43,6 @@ ALGORITHM_ALIASES = {
     "pure_ocs_ksp_greedy": "pure_ocs_ksp_greedy",
     "ocs_eps_preset_greedy": "ocs_eps_preset_greedy",
     "ocs_eps_preset_dynamic_greedy": "ocs_eps_preset_dynamic_greedy",
-    "pure_ocs_3hop_preset": "pure_ocs_3hop_preset",
     "pure_ocs_pruned": "pure_ocs_pruned",
 }
 
@@ -57,7 +55,6 @@ ALGORITHM_COLORS = {
     "pure_ocs_ksp_greedy": "#76B7B2",
     "ocs_eps_preset_greedy": "#59A14F",
     "ocs_eps_preset_dynamic_greedy": "#9C755F",
-    "pure_ocs_3hop_preset": "#EDC948",
     "pure_ocs_pruned": "#B07AA1",
 }
 

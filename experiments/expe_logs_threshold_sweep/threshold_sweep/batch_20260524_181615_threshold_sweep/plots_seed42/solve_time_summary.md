@@ -1,0 +1,21 @@
+| scheduler | avg_solve_time_ms | solve_time_ms | num_solve_calls | topology |
+|---|---:|---:|---:|---|
+| ocs_eps_preset_dynamic_greedy | 0.272062 | 13.059000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_large_small | 0.000000 | 0.000000 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.153865 | 7.385500 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.173470 | 8.326550 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.178182 | 8.552730 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.155568 | 7.467280 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.160292 | 7.694030 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.157080 | 7.539840 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.927350 | 44.512800 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.176289 | 8.461890 | 48 | n40_k3_c8_eps1.txt |
+| ocs_eps_preset_greedy | 0.164245 | 7.883750 | 48 | n40_k3_c8_eps1.txt |
